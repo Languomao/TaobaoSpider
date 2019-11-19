@@ -50,8 +50,8 @@ class GoodsSpider:
         # 代理ip，网上搜一个，猪哥使用的是 站大爷：http://ip.zdaye.com/dayProxy.html
         # 尽量使用最新的，可能某些ip不能使用，多试几个。后期可以考虑做一个ip池
         # 爬取淘宝ip要求很高，西刺代理免费ip基本都不能用，如果不能爬取就更换代理ip
-        proxies = {'http': '118.24.172.149:1080',
-                   'https': '60.205.202.3:3128'
+        proxies = {'http': '118.89.24.136:88',
+                   'https': '47.102.209.21:80'
                    }
         # 请求头
         headers = {
@@ -121,7 +121,7 @@ class GoodsSpider:
         if os.path.exists(GOODS_EXCEL_PATH):
             os.remove(GOODS_EXCEL_PATH)
         # 批量爬取，自己尝试时建议先爬取3页试试
-        for i in range(0, 100):
+        for i in range(0, 5):
             print('第%d页' % (i + 1))
             self.spider_goods(i)
             # 设置一个时间间隔
@@ -129,5 +129,5 @@ class GoodsSpider:
 
 
 if __name__ == '__main__':
-    gs = GoodsSpider('避孕套')
+    gs = GoodsSpider('固态硬盘')
     gs.patch_spider_goods()
